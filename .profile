@@ -9,6 +9,7 @@ export BROWSER="linkhandler"
 export TRUEBROWSER="firefox"
 export READER="zathura"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
+export ENVS="$HOME/miniconda3/envs"
 
 [ -f ~/.scripts/shortcuts.sh ] && ~/.scripts/shortcuts.sh
 
@@ -22,3 +23,5 @@ fi
 # Switch escape and caps and use wal colors if tty:
 sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 wal -Rn
+
+setxkbmap -option grp:alt_shift_toggle us,ru

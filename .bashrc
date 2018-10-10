@@ -51,10 +51,14 @@ alias wifispeed="speedometer -r wlp3s0"
 alias starwars="telnet towel.blinkenlights.nl"
 
 # TeX
-alias Txa="cp ~/Documents/LaTeX/article.tex"
-alias Txs="cp ~/Documents/LaTeX/beamer.tex"
-alias Txh="cp ~/Documents/LaTeX/handout.tex"
+alias Txa="cp ~/Documents/templates/article.tex"
+alias Txs="cp ~/Documents/templates/beamer.tex"
+alias Txh="cp ~/Documents/templates/handout.tex"
 
 source ~/.shortcuts
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
+
+# added by Miniconda3 installer
+
+alias sag="source activate general"

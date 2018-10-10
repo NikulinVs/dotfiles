@@ -241,3 +241,51 @@ vnoremap L >gv
 vnoremap H <gv
 
 map <enter><enter> yi[:e <c-r>"<cr>
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('$HOME/.vim/bundle')
+
+Plugin 'gmarik/Vundle.vim'
+
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+
+Plugin 'vim-scripts/indentpython.vim'
+
+autocmd BufWritePre *.py :%s/\s\+$//e
+
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+Plugin 'vim-syntastic/syntastic'
+
+Plugin 'nvie/vim-flake8'
+
+let python_highlight_all=1
+syntax on
+
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+call vundle#end()
+filetype plugin indent on
+
