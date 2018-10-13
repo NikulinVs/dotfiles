@@ -16,6 +16,9 @@ fi
 
 export GPG_TTY=$(tty)
 
+#quit ranger in its current directory
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+
 # System Maintainence
 alias mw="~/.config/mutt/mutt-wizard.sh"
 alias muttwizard="~/.config/mutt/mutt-wizard.sh"
@@ -60,5 +63,7 @@ source ~/.shortcuts
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 
 # added by Miniconda3 installer
+export PATH=$PATH:/home/vsevolod/miniconda3/bin/
 
 alias sag="source activate general"
+

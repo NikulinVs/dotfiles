@@ -20,8 +20,8 @@
 # #---Basic Definitions---# #
 # Needed for i3-gaps
 for_window [class="^.*"] border pixel 2
-gaps inner 15
-gaps outer 15
+gaps inner 0
+gaps outer 0
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $stoprec --no-startup-id dmenurecord kill
@@ -49,6 +49,9 @@ exec --no-startup-id rm -f ~/.larbs/.recording
 exec --no-startup-id nm-applet
 # mpd startup
 exec --no-startup-id mpd
+
+exec setxkbmap -layout us,ru
+exec setxkbmap -option grp:alt_shift_toggle
 
 # Set Xresources colors:
 set_from_resource $darkblack	color0  #000000
@@ -418,5 +421,4 @@ bindsym XF86Documents		exec $term -e ranger ~/Documents
 bindsym XF86WLAN		exec $netrefresh
 exec_always --no-startup-id notify-send -i ~/.scripts/larbs.png '<b>Welcome to LARBS:</b> Press Super+F1 for the manual.' -t 10000
 
-exec "setxkbmap -layout us,de"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
+
